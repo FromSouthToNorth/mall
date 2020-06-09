@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hy.mapper.GoodsMapper">
+
+    <sql id="goods_column">
+        goods.id gid, goods.goods_name,
+        goods.price, goods.goods_title,
+        goods.goods_img, goods.goods_type,
+        goods.register_date, goods.update_date,
+        goods_type.id tid, goods_type.type
+    </sql>
+
+    <resultMap id="goods" type="com.hy.entity.Goods">
+        <id column="gid" property="id"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="price" property="price"/>
+        <result column="goods_title" property="goodsTitle"/>
+        <result column="goods_img" property="goodsImg"/>
+        <result column="goods_type" property="goodsTypeId"/>
+        <result column="register_date" property="registerDate"/>
+        <result column="update_date" property="updateDate"/>
+        <association property="goodsType" javaType="com.hy.entity.GoodsType">
+            <id column="tid" property="id"/>
+            <result column="type" property="type"/>
+        </association>
+    </resultMap>
+
+    <select id="findAllGoods" resultMap="goods">
+        select
+        <include refid="goods_column"/>
+        from goods
+        inner join goods_type
+        on goods_type.id = goods.goods_type;
+    </select>
+
+
+</mapper>
