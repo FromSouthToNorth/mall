@@ -202,17 +202,74 @@
   </div>
 </div>
 <script>
-
+  let clothing = [];
+  let parts = [];
+  let phone = [];
+  let hot = [];
   $(function () {
-    $.ajax({
-      url:"/goods/goodsJson",
-      type:"get",
-      success:function (data) {
-        console.log(data);
-      }
-    });
+    getDate();
   });
+function getDate() {
+  $.ajax({
+    url:"/goods/goodsJson",
+    type:"get",
+    success:function (data) {
+      console.log(data);
+      for (let i = 1; i < data.data.length; i++) {
+        if (data.data[i].goodsTypeId === 1) {
+          clothing.push(data.data[i]);
+        }
+        if (data.data[i].goodsTypeId === 2) {
+          parts.push(data.data[i]);
+        }
+        if (data.data[i].goodsTypeId === 4) {
+          phone.push(data.data[i]);
+        }
+        if (data.data[i].goodsTypeId === 5) {
+          hot.push(data.data[i]);
+        }
+      }
+      let phoneHtml = $("#phone");
+      showGoods(phone, phoneHtml, 6);
+      let clothingHtml = $("#clothing");
+      showGoods(clothing, clothingHtml, 6);
+      let partsHtml = $("#parts");
+      showGoods(parts, partsHtml, 6)
+      let hotHtml = $("#hot");
+      showGoods(hot, hotHtml, 2)
+    }
+  });
+}
 
+function showGoods(data, dom, number) {
+  for (let i = 0; i < data.length; i++) {
+    if (i === number) { break; }
+    let label = '<div class="good-item" data-v-0265f772="" data-v-4af9704d="" data-v-26571f4f="">\n' +
+                '   <div data-v-0265f772="">\n' +
+                '     <div class="good-img" data-v-0265f772="">\n' +
+                '       <a data-v-0265f772=""><img src="/resource/assets/'+ data[i].goodsImg +'" data-v-0265f772="" alt='+ data[i].goodsTitle +'></a>\n' +
+                '     </div>\n' +
+                '     <h6 class="good-title" data-v-0265f772="">' + data[i].goodsName + '</h6>\n' +
+                '     <h3 class="sub-title ellipsis" data-v-0265f772="">' + data[i].goodsTitle + '</h3>\n' +
+                '     <div class="good-price pr" data-v-0265f772="1">\n' +
+                '       <div class="ds pa" data-v-0265f772="">\n' +
+                '         <a href="/goods?method=info&goodsId=' + data[i].id + '" data-v-0265f772="">\n' +
+                '           <input class="default-btn" data-v-612d7650=""\n' +
+                '                  data-v-0265f772="" type="button" readonly="readonly"\n' +
+                '                  value="查看详情" style="margin: 0px 5px;">\n' +
+                '         </a>\n' +
+                '         <input data-id=' + data[i].id + ' class="main-btn" data-v-612d7650 data-v-0265f772=""\n' +
+                '                type="button" readonly="readonly" value="加入购物车"\n' +
+                '                style="margin: 0px 5px;">\n' +
+                '       </div>\n' +
+                '       <p data-v-0265f772="">\n' +
+                '         <span data-v-0265f772="" style="font-size: 14px;">￥</span>' + data[i].price + '</p>\n' +
+                '     </div>\n' +
+                '   </div>\n' +
+                '</div>';
+    $(dom).append(label);
+  }
+}
 </script>
 </body>
 </html>
