@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>头部</title>
@@ -18,28 +19,28 @@
             <div class="w-box" data-v-7d15c3c3="">
                 <div class="nav-logo" data-v-7d15c3c3="">
                     <h1 data-v-7d15c3c3="">
-                        <a class="router-link-active" data-v-7d15c3c3="" href="/index.jsp" title="XMall商城官网">XMall商城官网</a>
+                        <a class="router-link-active" data-v-7d15c3c3="" href="${pageContext.request.contextPath}/index.jsp" title="XMall商城官网">XMall商城官网</a>
                     </h1>
                 </div>
                 <div class="right-box" data-v-7d15c3c3="">
                     <div class="nav-list" data-v-7d15c3c3="">
-<%--                        <div class="el-autocomplete" data-v-7d15c3c3="" minlength="1" maxlength="100">--%>
-<%--                            <div class="el-input" props="[object Object]"--%>
-<%--                                 fetchsuggestions="function() { [native code] }" triggeronfocus="true">--%>
-<%--                                <!---->--%>
-<%--                                <i class="el-input__icon el-icon-search is-clickable"></i>--%>
-<%--                                <input class="el-input__inner" autocomplete="off" placeholder="请输入商品信息"--%>
-<%--                                       icon="search" type="text" rows="2" validateevent="true">--%>
-<%--                                <!---->--%>
-<%--                                <!---->--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
+                        <div class="el-autocomplete" data-v-7d15c3c3="" minlength="1" maxlength="100">
+                            <div class="el-input" props="[object Object]"
+                                 fetchsuggestions="function() { [native code] }" triggeronfocus="true">
+                                <!---->
+                                <i class="el-input__icon el-icon-search is-clickable"></i>
+                                <input class="el-input__inner" autocomplete="off" placeholder="请输入商品信息"
+                                       icon="search" type="text" rows="2" validateevent="true">
+                                <!---->
+                                <!---->
+                            </div>
+                        </div>
                         <a class="" data-v-7d15c3c3="" href="/goods?method=goods&term=all"><object><a
                                 data-v-7d15c3c3="">全部商品</a></object></a>
                     </div>
                     <div class="nav-aside" data-v-7d15c3c3="">
                         <div class="user pr" data-v-7d15c3c3="">
-                            <a class="" data-v-7d15c3c3="" href="${user == null ? '/login.jsp' : '/user.jsp'}">个人中心</a>
+                            <a class="" data-v-7d15c3c3="" href="${pageContext.request.contextPath}/index/myCenter">个人中心</a>
                             <c:if test="${user != null}">
                                 <div class="nav-user-wrapper pa" data-v-7d15c3c3="">
                                     <div class="nav-user-list"data-v-7d15c3c3="">
@@ -47,7 +48,7 @@
                                             <li class="nav-user-avatar" data-v-7d15c3c3="">
                                                 <div data-v-7d15c3c3="">
                               <span class="avatar" data-v-7d15c3c3=""
-                                    style="background-image: url(/image/avatar/20190826144820.jpg)">
+                                    style="background-image: url(/resource/assets/image/avatar/20190826144820.jpg)">
                               </span>
                                                 </div>
                                                 <p class="name" data-v-7d15c3c3="">${user.userName}</p>

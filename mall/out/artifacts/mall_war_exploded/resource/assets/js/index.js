@@ -5,19 +5,6 @@ $(function () {
         location.href = "/goods?method=removeTerm";
     })
     let term = $("#term").val();
-    // 这个可以改为switch
-    // if (term === "all") {
-    //     $("#all").addClass("active");
-    // } else if (term === "phone") {
-    //     $("#goods-phone").addClass("active");
-    // } else if (term === "costume") {
-    //     $("#costume").addClass("active");
-    // } else if (term === "goodsCity") {
-    //     $("#goodsCity").addClass("active");
-    // } else {
-    //     $("#index").addClass("active");
-    // }
-
     switch (term) {
         case term === "all":
             $("#all").addClass("active");
@@ -151,29 +138,29 @@ $(function () {
         for (let i = 0; i < data.length; i++) {
             totalPrice += parseInt(data[i].goods.price);
             let label = '<li class="clearfix" data-v-7d15c3c3="">\n' +
-                '           <div class="cart-item" data-v-7d15c3c3="">\n' +
-                '             <div class="cart-item-inner" data-v-7d15c3c3="">\n' +
-                '               <a data-v-7d15c3c3="">\n' +
-                '                 <object>\n' +
-                '                   <div class="item-thumb" data-v-7d15c3c3="">\n' +
-                '                     <img data-v-7d15c3c3="" src="' + data[i].goods.goodsImg + '" alt="">\n' +
-                '                   </div>\n' +
-                '                   <div class="item-desc" data-v-7d15c3c3="">\n' +
-                '                     <div class="cart-cell" data-v-7d15c3c3="">\n' +
-                '                       <h4 data-v-7d15c3c3=""><a data-v-7d15c3c3="">' + data[i].goods.goodsName + '</a></h4>\n' +
-                '                       <h6 data-v-7d15c3c3="">\n' +
-                '                         <span class="price-icon" data-v-7d15c3c3="">￥</span>\n' +
-                '                         <span class="price-num" data-v-7d15c3c3="">' + data[i].goods.price + '</span>\n' +
-                '                         <span class="item-num" data-v-7d15c3c3="">x 1</span>\n' +
-                '                       </h6>\n' +
-                '                     </div>\n' +
-                '                   </div>\n' +
-                '                 </object>\n' +
-                '               </a>\n' +
-                '               <div class="del-btn delete-cart del" data-id=' + data[i].id + ' data-v-7d15c3c3="">删除</div>\n' +
-                '             </div>\n' +
-                '           </div>\n' +
-                '         </li>';
+                        '  <div class="cart-item" data-v-7d15c3c3="">\n' +
+                        '    <div class="cart-item-inner" data-v-7d15c3c3="">\n' +
+                        '      <a data-v-7d15c3c3="">\n' +
+                        '        <object>\n' +
+                        '          <div class="item-thumb" data-v-7d15c3c3="">\n' +
+                        '            <img data-v-7d15c3c3="" src="' + data[i].goods.goodsImg + '" alt="">\n' +
+                        '          </div>\n' +
+                        '          <div class="item-desc" data-v-7d15c3c3="">\n' +
+                        '            <div class="cart-cell" data-v-7d15c3c3="">\n' +
+                        '              <h4 data-v-7d15c3c3=""><a data-v-7d15c3c3="">' + data[i].goods.goodsName + '</a></h4>\n' +
+                        '              <h6 data-v-7d15c3c3="">\n' +
+                        '                <span class="price-icon" data-v-7d15c3c3="">￥</span>\n' +
+                        '                <span class="price-num" data-v-7d15c3c3="">' + data[i].goods.price + '</span>\n' +
+                        '                <span class="item-num" data-v-7d15c3c3="">x 1</span>\n' +
+                        '              </h6>\n' +
+                        '            </div>\n' +
+                        '          </div>\n' +
+                        '        </object>\n' +
+                        '      </a>\n' +
+                        '      <div class="del-btn delete-cart del" data-id=' + data[i].id + ' data-v-7d15c3c3="">删除</div>\n' +
+                        '    </div>\n' +
+                        '  </div>\n' +
+                        '</li>';
             $(".product_list").append(label);
         }
         $("#total-price").text(totalPrice);

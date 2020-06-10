@@ -17,13 +17,13 @@
 <div id="app">
   <div class="main" data-v-c8a942a0="">
     <!-- 头部 -->
-    <%@include file="resource/assets/jsp/head.jsp" %>
+    <%@include file="resource/assets/jsp/module/head.jsp" %>
     <!-- /头部 -->
 
     <div class="home main" data-v-4af9704d="">
       <div data-v-4af9704d="" style="min-height: 35vw; position: static;">
         <!--轮播图-->
-        <%@include file="resource/assets/jsp/marquee.jsp" %>
+        <%@include file="resource/assets/jsp/module/marquee.jsp" %>
         <!--/轮播图-->
         <div data-v-4af9704d="">
           <!---->
@@ -31,7 +31,7 @@
           <!---->
         </div>
         <!-- 顶部推荐 -->
-        <%@include file="resource/assets/jsp/topRecommend.jsp" %>
+        <%@include file="resource/assets/jsp/module/topRecommend.jsp" %>
         <!-- /顶部推荐 -->
         <div data-v-4af9704d="">
           <!---->
@@ -123,7 +123,7 @@
         </section>
       </div>
       <!-- 底部推荐 -->
-      <%@include file="resource/assets/jsp/bottomRecommend.jsp" %>
+      <%@include file="resource/assets/jsp/module/bottomRecommend.jsp" %>
       <!-- /底部推荐 -->
     </div>
     <script>
@@ -197,7 +197,7 @@
       });
     </script>
     <!-- 底部 -->
-    <%@include file="resource/assets/jsp/bottom.jsp" %>
+    <%@include file="resource/assets/jsp/module/bottom.jsp" %>
     <!-- /底部 -->
   </div>
 </div>
@@ -260,7 +260,7 @@ function showGoods(data, dom, number) {
                 '         </a>\n' +
                 '         <input data-id=' + data[i].id + ' class="main-btn" data-v-612d7650 data-v-0265f772=""\n' +
                 '                type="button" readonly="readonly" value="加入购物车"\n' +
-                '                style="margin: 0px 5px;">\n' +
+                '                style="margin: 0 5px;">\n' +
                 '       </div>\n' +
                 '       <p data-v-0265f772="">\n' +
                 '         <span data-v-0265f772="" style="font-size: 14px;">￥</span>' + data[i].price + '</p>\n' +
